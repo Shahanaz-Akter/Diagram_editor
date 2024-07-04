@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!-- DevExtreme Demo -->
+
+<head>
+    <title>Diagram.io</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+    <!-- bootstrap 5 css cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))</script>
+    <script src="https://cdn3.devexpress.com/jslib/24.1.3/js/dx-diagram.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/24.1.3/css/dx-diagram.min.css" />
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/24.1.3/css/dx.material.blue.light.css" />
+    <script src="js/dx.all.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <!-- Diagram and Gantt stylesheets -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-gantt/4.1.55/dx-gantt.min.css" rel="stylesheet">
+
+    <!-- Theme stylesheets (reference only one of them) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.carmine.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.carmine.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.contrast.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.contrast.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.dark.compact.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.dark.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.darkmoon.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.darkmoon.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.darkviolet.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.darkviolet.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.greenmist.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.greenmist.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.light.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.blue.dark.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.blue.dark.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.blue.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.blue.light.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.lime.dark.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.lime.dark.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.lime.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.lime.light.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.orange.dark.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.orange.dark.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.orange.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.orange.light.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.purple.dark.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.purple.dark.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.purple.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.purple.light.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.teal.dark.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.teal.dark.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.teal.light.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.material.teal.light.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.softblue.compact.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.softblue.css" rel="stylesheet">
+
+    <!-- Diagram and Gantt development stylesheets -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-gantt/4.1.55/dx-gantt.css" rel="stylesheet"> -->
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+
+</head>
+
+<style>
+
+</style>
+
+<body class="dx-viewport">
+    <div class="demo-container">
+        <div id="diagram"> </div>
+        <div id="popup"> </div>
+    </div>
+
+    <!-- Diagram and Gantt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/devexpress-gantt/4.1.55/dx-gantt.min.js"></script>
+
+    <!-- DevExtreme Quill (required by the HtmlEditor UI component) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.7.1/dx-quill.min.js"></script>
+
+    <!-- DevExtreme library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/js/dx.all.js"></script>
+
+    <!-- DevExpress.AspNet.Data -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-aspnet-data/4.0.0/dx.aspnet.data.min.js"></script>
+
+    <!-- Development scripts -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devexpress-gantt/4.1.55/dx-gantt.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.7.1/dx-quill.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-aspnet-data/4.0.0/dx.aspnet.data.js"></script> -->
+
+
+    <!-- Diagram and Gantt -->
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-diagram.min.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-gantt.min.js"></script>
+
+    <!-- DevExtreme Quill (required by the HtmlEditor UI component) -->
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-quill.min.js"></script>
+
+    <!-- DevExtreme libraries (reference only one of them) -->
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.all.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.viz.js"></script>
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.web.js"></script>
+
+    <!-- DevExpress.AspNet.Data -->
+    <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.aspnet.mvc.js"></script>
+
+    <!-- Development scripts -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-diagram.js"></script> -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-gantt.js"></script> -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-quill.js"></script> -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.all.debug.js"></script> -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.viz.debug.js"></script> -->
+    <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.web.debug.js"></script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select the div using its style attribute (as it seems unique enough)
+            var divToHide = document.querySelector('div[style*="z-index: 1500"][style*="background-color: rgb(255, 114, 0)"]');
+
+            // Check if the div is found
+            if (divToHide) {
+                // Hide the div by setting its display property to none
+                divToHide.style.display = 'none';
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
