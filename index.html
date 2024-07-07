@@ -3,7 +3,7 @@
 <!-- DevExtreme Demo -->
 
 <head>
-    <title>Diagram.io</title>
+    <title>Custom Diagram Maker</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
@@ -15,10 +15,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))</script>
     <script src="https://cdn3.devexpress.com/jslib/24.1.3/js/dx-diagram.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/24.1.3/css/dx-diagram.min.css" />
+    <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/24.1.3/css/dx-diagram.min.css" />
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/24.1.3/css/dx.material.blue.light.css" />
-    <script src="js/dx.all.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <!-- <script src="js/dx.all.js"></script> -->
+    <link href="styles.css" />
 
     <!-- Diagram and Gantt stylesheets -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.min.css" rel="stylesheet">
@@ -89,6 +89,8 @@
         rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/devextreme-dist/24.1.3/css/dx.softblue.css" rel="stylesheet">
 
+    
+
     <!-- Diagram and Gantt development stylesheets -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.css" rel="stylesheet"> -->
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/devexpress-gantt/4.1.55/dx-gantt.css" rel="stylesheet"> -->
@@ -101,11 +103,138 @@
 
 </style>
 
-<body class="dx-viewport">
-    <div class="demo-container">
-        <div id="diagram"> </div>
-        <div id="popup"> </div>
+<body>
+
+    <!-- <div class="dx-viewport dx-device-desktop dx-device-generic dx-theme-generic dx-theme-generic-typography dx-color-scheme-softblue">
+         <dx-license version="24.1.3"
+            buy-now="https://go.devexpress.com/Licensing_Installer_Watermark_DevExtremeJQuery.aspx"
+            data-permanent="true"
+            style="opacity: 1 !important; visibility: visible !important; clip-path: none !important; filter: none !important; width: 100% !important; height: auto !important; line-height: normal !important; display: flex !important; z-index: 1500 !important; position: relative !important; transform: translate(0px, 0px) !important; background-color: rgb(255, 114, 0) !important; border: none !important; margin: auto !important; box-sizing: border-box !important; text-align: center !important; align-items: center !important; flex-direction: row !important; top: 0px !important; left: 0px !important; padding: 0.5rem !important;">
+            <div
+                style="opacity: 1 !important; visibility: visible !important; clip-path: none !important; filter: none !important; width: 100% !important; height: auto !important; line-height: normal !important; display: block !important; z-index: 1500 !important; position: static !important; transform: translate(0px, 0px) !important; background-color: rgb(255, 114, 0) !important; border: none !important; margin: auto !important; box-sizing: border-box !important; text-align: center !important;">
+                <span
+                    style="opacity: 1 !important; visibility: visible !important; clip-path: none !important; filter: none !important; display: inline !important; position: static !important; padding: 0px !important; margin: 0px !important; color: white !important; font-family: &quot;Segoe UI&quot;, &quot;Open Sans Condensed&quot;, -apple-system, BlinkMacSystemFont, &quot;avenir next&quot;, avenir, &quot;helvetica neue&quot;, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif !important; font-size: 0.875rem !important;">For
+                    evaluation purposes only. Redistribution not authorized. Please </span><a
+                    href="https://go.devexpress.com/Licensing_Installer_Watermark_DevExtremeJQuery.aspx" target="_blank"
+                    style="opacity: 1 !important; visibility: visible !important; clip-path: none !important; filter: none !important; display: inline !important; position: static !important; padding: 0px !important; margin: 0px !important; color: white !important; font-family: &quot;Segoe UI&quot;, &quot;Open Sans Condensed&quot;, -apple-system, BlinkMacSystemFont, &quot;avenir next&quot;, avenir, &quot;helvetica neue&quot;, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif !important; font-size: 0.875rem !important;">purchase
+                    a license</a><span
+                    style="opacity: 1 !important; visibility: visible !important; clip-path: none !important; filter: none !important; display: inline !important; position: static !important; padding: 0px !important; margin: 0px !important; color: white !important; font-family: &quot;Segoe UI&quot;, &quot;Open Sans Condensed&quot;, -apple-system, BlinkMacSystemFont, &quot;avenir next&quot;, avenir, &quot;helvetica neue&quot;, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif !important; font-size: 0.875rem !important;">
+                    to continue use of DevExpress product libraries (v24.1.3).</span></div>
+            <div style="width: 1rem !important; cursor: pointer !important; height: 1rem !important;"><svg id="Layer_1"
+                    data-name="Layer 1" version="1.1" viewBox="0 0 16 16" style="vertical-align: baseline !important;">
+                    <polygon
+                        points="13.4 12.7 8.7 8 13.4 3.4 12.6 2.6 8 7.3 3.4 2.6 2.6 3.4 7.3 8 2.6 12.6 3.4 13.4 8 8.7 12.7 13.4 13.4 12.7"
+                        style="fill: rgb(255, 255, 255) !important; opacity: 0.5 !important; stroke-width: 0px !important;">
+                    </polygon>
+                </svg></div>
+        </dx-license>
+    </div>-->
+    <script>
+        let dxLlicense = document.querySelector('dx-license');
+        console.log(dxLlicense);
+        console.log('dxLlicense');
+    </script>
+
+    <div class="dx-viewport">
+        <div class="demo-container">
+            <div id="diagram">
+
+            </div>
+            <div id="popup"> </div>
+        </div>
+
+        <div class="pt-5 ps-2 d-none" style="display:flex; justify-content:start;">
+            <input type="file" id="importFile" style="display: none;">
+            <button id="importButton" class="btn btn-success btn-sm">Import Diagram</button>
+        </div>
+        <!-- Add the Diagram Component to an Angular CLI Application -->
+         
     </div>
+
+    <script>
+        $(document).ready(function () {
+            var diagram = $("#diagram").dxDiagram({
+                nodes: {
+                    dataSource: []
+                }
+            }).dxDiagram("instance");
+
+            $("#importButton").on("click", function () {
+                $("#importFile").click();
+            });
+
+            $("#importFile").on("change", function (event) {
+                var file = event.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var content = e.target.result;
+                        console.log("File content:", content);
+
+                        if (file.type === "image/svg+xml") {
+                            // Convert SVG content to JSON format
+                            var diagramData = convertSVGtoJSON(content);
+                            if (diagramData) {
+                                console.log("Converted JSON data:", diagramData);
+                                diagram.import(diagramData);
+                            } else {
+                                alert("Failed to load the diagram. Unsupported file format or conversion error.");
+                            }
+                        } else {
+                            alert("Unsupported file format: " + file.type);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+
+            function convertSVGtoJSON(svgContent) {
+                // Simplified example: parsing SVG content and converting to JSON format
+                var parser = new DOMParser();
+                var svgDoc = parser.parseFromString(svgContent, "image/svg+xml");
+                var nodes = [];
+                var edges = [];
+
+                var shapes = svgDoc.querySelectorAll("rect, circle, ellipse");
+                shapes.forEach(function (shape, index) {
+                    var type = shape.tagName;
+                    var id = "node" + (index + 1);
+                    var x = parseFloat(shape.getAttribute("x") || shape.getAttribute("cx")) || 0;
+                    var y = parseFloat(shape.getAttribute("y") || shape.getAttribute("cy")) || 0;
+                    var width = parseFloat(shape.getAttribute("width")) || 50;
+                    var height = parseFloat(shape.getAttribute("height")) || 50;
+
+                    nodes.push({
+                        id: id,
+                        type: type,
+                        text: id,
+                        x: x,
+                        y: y,
+                        width: width,
+                        height: height
+                    });
+                });
+
+                // Example: create edges between nodes (if applicable)
+                if (nodes.length > 1) {
+                    for (var i = 0; i < nodes.length - 1; i++) {
+                        edges.push({
+                            id: "edge" + (i + 1),
+                            from: nodes[i].id,
+                            to: nodes[i + 1].id
+                        });
+                    }
+                }
+
+                return {
+                    nodes: nodes,
+                    edges: edges
+                };
+            }
+        });
+    </script>
+
+
 
     <!-- Diagram and Gantt -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/devexpress-diagram/2.2.8/dx-diagram.min.js"></script>
@@ -126,7 +255,6 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-quill/1.7.1/dx-quill.js"></script> -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/devextreme-aspnet-data/4.0.0/dx.aspnet.data.js"></script> -->
 
-
     <!-- Diagram and Gantt -->
     <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-diagram.min.js"></script>
     <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-gantt.min.js"></script>
@@ -141,6 +269,8 @@
 
     <!-- DevExpress.AspNet.Data -->
     <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.aspnet.mvc.js"></script>
+    <script src="additional_features.js"></script>
+    <!-- <script src="org.js"></script> -->
 
     <!-- Development scripts -->
     <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx-diagram.js"></script> -->
@@ -149,21 +279,6 @@
     <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.all.debug.js"></script> -->
     <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.viz.debug.js"></script> -->
     <!-- <script src="https://cdn3.devexpress.com/jslib/minor_23_2/js/dx.web.debug.js"></script> -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select the div using its style attribute (as it seems unique enough)
-            var divToHide = document.querySelector('div[style*="z-index: 1500"][style*="background-color: rgb(255, 114, 0)"]');
-
-            // Check if the div is found
-            if (divToHide) {
-                // Hide the div by setting its display property to none
-                divToHide.style.display = 'none';
-            }
-
-        });
-
-    </script>
 
 </body>
 
